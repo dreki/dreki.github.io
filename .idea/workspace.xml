@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ce1e1d02-a1ed-462a-94c0-c7f92c08c9fb" name="Default" comment="" />
+    <list default="true" id="ce1e1d02-a1ed-462a-94c0-c7f92c08c9fb" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Violet_YDY_landing_v5.html" afterPath="$PROJECT_DIR$/Violet_YDY_landing_v5.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aistyles.css" afterPath="$PROJECT_DIR$/aistyles.css" />
+    </list>
     <ignored path="ai2html-output.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,11 +28,12 @@
       <file leaf-file-name="Violet_YDY_landing_v5.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Violet_YDY_landing_v5.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="107" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+            <state relative-caret-position="396">
+              <caret line="143" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -36,8 +42,8 @@
       <file leaf-file-name="aistyles.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/aistyles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+            <state relative-caret-position="270">
+              <caret line="136" column="3" selection-start-line="0" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -45,11 +51,15 @@
       </file>
     </leaf>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Violet_YDY_landing_v5.html" />
         <option value="$PROJECT_DIR$/aistyles.css" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -65,7 +75,7 @@
     <option name="width" value="1373" />
     <option name="height" value="848" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -185,12 +195,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1463494540228</updated>
-      <workItem from="1463494541654" duration="153000" />
+      <workItem from="1463494541654" duration="318000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153000" />
+    <option name="totallyTimeSpent" value="318000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="58" y="35" width="1373" height="848" extended-state="0" />
@@ -224,19 +234,28 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Violet_YDY_landing_v5.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="107" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+        <state relative-caret-position="396">
+          <caret line="143" column="0" selection-start-line="88" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
           <folding>
             <element signature="n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/aistyles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+        <state relative-caret-position="270">
+          <caret line="136" column="3" selection-start-line="0" selection-start-column="0" selection-end-line="200" selection-end-column="0" />
           <folding />
         </state>
       </provider>
