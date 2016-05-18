@@ -21,7 +21,7 @@
 }
 
 /* Smartphones (portrait) ----------- */
-@media all and (min-width: 769px) {
+@media (min-width: 769px) {
     #g-Violet_YDY_landing_v5-Desktop {
         display: block;
     }
@@ -35,7 +35,7 @@
     }
 }
 
-@media all and (min-width: 376px) and (max-width: 768px) {
+@media (min-width: 376px) and (max-width: 768px) {
     #g-Violet_YDY_landing_v5-Desktop {
         display: none;
     }
@@ -49,7 +49,7 @@
     }
 }
 
-@media all and (min-width: 0px) and (max-width: 375px) {
+@media (min-width: 0px) and (max-width: 375px) {
     #g-Violet_YDY_landing_v5-Desktop {
         display: none;
     }
