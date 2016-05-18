@@ -22,4 +22,12 @@ $(document).ready(function() {
 
     return false;  // don't post back to the server
   });
+  
+  var $cover = $('.cover');
+  function resizeCover() {
+    $cover.width($(window).width());
+    $cover.height($(window).height());
+  }
+  $(window).resize(resizeCover);
+  resizeCover();
 });
