@@ -1,0 +1,30 @@
+{
+  "name": "drekigithubio",
+  "version": "1.0.0",
+  "description": "dreki's github.io",
+  "scripts": {},
+  "dependencies": {
+    "node-summary": "^1.1.0"
+  },
+  "engines": {
+    "node": "6.9.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dreki/dreki.github.io"
+  },
+  "keywords": [
+    "github.io",
+    "dreki"
+  ],
+  "author": "Sean Gilbertson",
+  "contributors": [
+    "Sean Gilbertson <sean.gilbertson@gmail.com> (https://dreki.github.io)"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "webpack": "^2.4.1"
+  }
+}
