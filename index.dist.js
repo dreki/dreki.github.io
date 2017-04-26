@@ -3742,6 +3742,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_node_summary___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_node_summary__);
 
 
+alert('hello browser');
+
 /***/ }),
 /* 67 */
 /***/ (function(module, exports, __webpack_require__) {
