@@ -2,7 +2,9 @@
   "name": "drekigithubio",
   "version": "1.0.0",
   "description": "dreki's github.io",
-  "scripts": {},
+  "scripts": {
+      "webpack": "./node_modules/.bin/webpack --config webpack.config.js"
+  },
   "dependencies": {
     "node-summary": "^1.1.0"
   },
