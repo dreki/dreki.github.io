@@ -11913,21 +11913,6 @@ var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// let nextTodoId = 0;
-// export const addTodo = (text) => ({
-//   type: 'ADD_TODO',
-//   id: nextTodoId++,
-//   text
-// });
-// export const setVisibilityFilter = (filter) => ({
-//   type: 'SET_VISIBILITY_FILTER',
-//   filter
-// });
-// export const toggleTodo = (id) => ({
-//   type: 'TOGGLE_TODO',
-//   id
-// });
-
 var _setSummarizeLevel = exports._setSummarizeLevel = function _setSummarizeLevel(level) {
   return {
     type: 'SET_SUMMARIZE_LEVEL',
@@ -11937,17 +11922,6 @@ var _setSummarizeLevel = exports._setSummarizeLevel = function _setSummarizeLeve
 
 var scaleText = exports.scaleText = function scaleText(level) {
   var text = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : FULL_TEXT;
-
-  // Summary.summarize('Summarize demo', text, function(err, summary, dict) {
-  //   if(err) {
-  //     console.log("There was an error."); // Need better error reporting
-  //   }
-
-  //   level = parseInt(level);
-  //   Summary.getSortedSentences(text, level, function (err, sorted_sentences) {
-  //     console.log(text);
-  //   }, dict);
-  // });
 
   return {
     type: 'SET_TEXT',
@@ -11965,30 +11939,16 @@ var LEVELS = {
 var setSummarizeLevel = exports.setSummarizeLevel = function setSummarizeLevel(level) {
   return function (dispatch, getState) {
     dispatch(_setSummarizeLevel(level));
+    dispatch(scaleText(level, '')); // blank while waiting
 
     _axios2.default.post('https://limitless-spire-64480.herokuapp.com/summarize', {
       url: 'https://www.buzzfeed.com/blakemontgomery/this-guy-built-a-working-iphone-out-of-300-in-spare-parts',
       sentences: LEVELS[level]
-    })
-    // .post(`https://community-smmry.p.mashape.com/?SM_API_KEY=9E085CB931&SM_LENGTH=${LEVELS[level]}&SM_URL=https%3A%2F%2Fwww.buzzfeed.com%2Fblakemontgomery%2Fthis-guy-built-a-working-iphone-out-of-300-in-spare-parts%3Futm_term%3D.beLayeJmL%23.fvbOGDY7R`)
-    // .set('X-Mashape-Key', '04gC0fqf1FmsheUv4uWWcdsMwkiwp1sEedwjsnwWOzDo9LIfiq')
-    // .set('Accept', 'text/plain')
-
-    // .post('https://textanalysis-text-summarization.p.mashape.com/text-summarizer')
-    // .send({text: FULL_TEXT})
-    // .set('X-Mashape-Key', '04gC0fqf1FmsheUv4uWWcdsMwkiwp1sEedwjsnwWOzDo9LIfiq')
-    // .set('Content-Type', 'application/json')
-    // .set('Accept', 'application/json')
-
-
-    .then(function (response) {
-      // dispatch(scaleText(level, `${res.body.sm_api_title} ${res.body.sm_api_content}`));
+    }).then(function (response) {
       dispatch(scaleText(level, response.data));
     }).catch(function (err) {
       console.error(err);
     });
-
-    // dispatch(scaleText(level, getState().text));
   };
 };
 
@@ -12036,6 +11996,11 @@ var Summarizer = function (_React$Component) {
   }
 
   _createClass(Summarizer, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.props.onAdjustLevel(this.slider.value);
+    }
+  }, {
     key: 'onChange',
     value: function onChange() {
       this.props.onAdjustLevel(this.slider.value);
@@ -12045,13 +12010,14 @@ var Summarizer = function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
+      var disabled = this.props.text === '';
       return _react2.default.createElement(
         'div',
         null,
         _react2.default.createElement(
           'h1',
           null,
-          'Digestion begins'
+          'Shorten article'
         ),
         this.props.level,
         _react2.default.createElement('input', { ref: function ref(node) {
@@ -12061,6 +12027,7 @@ var Summarizer = function (_React$Component) {
           min: '1',
           max: '5',
           step: '1',
+          disabled: disabled,
           defaultValue: this.props.level,
           onChange: function onChange() {
             _this2.onChange();
