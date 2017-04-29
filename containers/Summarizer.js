@@ -11,8 +11,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onAdjustLevel: (level) => {
-      dispatch(setSummarizeLevel(level));
+    onAdjustLevel: (level, url) => {
+      dispatch(setSummarizeLevel(level, url));
     }
   };
 };

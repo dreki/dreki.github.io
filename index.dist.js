@@ -11913,10 +11913,11 @@ var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var _setSummarizeLevel = exports._setSummarizeLevel = function _setSummarizeLevel(level) {
+var _setSummarizeLevel = exports._setSummarizeLevel = function _setSummarizeLevel(level, url) {
   return {
     type: 'SET_SUMMARIZE_LEVEL',
-    level: level
+    level: level,
+    url: url
   };
 };
 
@@ -11936,13 +11937,18 @@ var LEVELS = {
   4: 10,
   5: 100
 };
-var setSummarizeLevel = exports.setSummarizeLevel = function setSummarizeLevel(level) {
+var setSummarizeLevel = exports.setSummarizeLevel = function setSummarizeLevel(level, url) {
   return function (dispatch, getState) {
-    dispatch(_setSummarizeLevel(level));
+    dispatch(_setSummarizeLevel(level, url));
     dispatch(scaleText(level, '')); // blank while waiting
 
-    _axios2.default.post('https://limitless-spire-64480.herokuapp.com/summarize', {
-      url: 'https://www.buzzfeed.com/blakemontgomery/this-guy-built-a-working-iphone-out-of-300-in-spare-parts',
+    _axios2.default
+    // .post('https://limitless-spire-64480.herokuapp.com/summarize', {
+    //   url: 'https://www.buzzfeed.com/blakemontgomery/this-guy-built-a-working-iphone-out-of-300-in-spare-parts',
+    //   sentences: LEVELS[level]
+    // })
+    .post('https://limitless-spire-64480.herokuapp.com/summarize', {
+      url: url,
       sentences: LEVELS[level]
     }).then(function (response) {
       dispatch(scaleText(level, response.data));
@@ -11981,6 +11987,10 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var urlStyle = {
+  width: '600px'
+};
+
 var textStyle = {
   width: '600px',
   whiteSpace: 'pre-line'
@@ -11998,12 +12008,12 @@ var Summarizer = function (_React$Component) {
   _createClass(Summarizer, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      this.props.onAdjustLevel(this.slider.value);
+      this.props.onAdjustLevel(this.slider.value, this.url.value);
     }
   }, {
     key: 'onChange',
     value: function onChange() {
-      this.props.onAdjustLevel(this.slider.value);
+      this.props.onAdjustLevel(this.slider.value, this.url.value);
     }
   }, {
     key: 'render',
@@ -12019,7 +12029,36 @@ var Summarizer = function (_React$Component) {
           null,
           'Shorten article'
         ),
-        this.props.level,
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'strong',
+            null,
+            'URL of an article on the web'
+          ),
+          ':'
+        ),
+        _react2.default.createElement('input', { type: 'text',
+          style: urlStyle,
+          ref: function ref(node) {
+            _this2.url = node;
+          },
+          placeholder: 'URL', defaultValue: 'https://www.buzzfeed.com/blakemontgomery/this-guy-built-a-working-iphone-out-of-300-in-spare-parts', onChange: function onChange() {
+            _this2.onChange();
+          } }),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'strong',
+            null,
+            'How long would you like the article to be?'
+          ),
+          ':'
+        ),
         _react2.default.createElement('input', { ref: function ref(node) {
             _this2.slider = node;
           },
@@ -12076,8 +12115,8 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch, ownProps) {
   return {
-    onAdjustLevel: function onAdjustLevel(level) {
-      dispatch((0, _actions.setSummarizeLevel)(level));
+    onAdjustLevel: function onAdjustLevel(level, url) {
+      dispatch((0, _actions.setSummarizeLevel)(level, url));
     }
   };
 };
