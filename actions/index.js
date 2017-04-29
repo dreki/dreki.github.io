@@ -42,8 +42,8 @@ const LEVELS = {
   1: 2,
   2: 4,
   3: 6,
-  4: 12,
-  5: 50,
+  4: 10,
+  5: 100,
 };
 export const setSummarizeLevel = (level) => {
   return (dispatch, getState) => {
@@ -51,7 +51,8 @@ export const setSummarizeLevel = (level) => {
 
     axios
       .post('https://limitless-spire-64480.herokuapp.com/summarize', {
-        url: 'https://www.buzzfeed.com/blakemontgomery/this-guy-built-a-working-iphone-out-of-300-in-spare-parts'
+        url: 'https://www.buzzfeed.com/blakemontgomery/this-guy-built-a-working-iphone-out-of-300-in-spare-parts',
+        sentences: LEVELS[level]
       })
       // .post(`https://community-smmry.p.mashape.com/?SM_API_KEY=9E085CB931&SM_LENGTH=${LEVELS[level]}&SM_URL=https%3A%2F%2Fwww.buzzfeed.com%2Fblakemontgomery%2Fthis-guy-built-a-working-iphone-out-of-300-in-spare-parts%3Futm_term%3D.beLayeJmL%23.fvbOGDY7R`)
       // .set('X-Mashape-Key', '04gC0fqf1FmsheUv4uWWcdsMwkiwp1sEedwjsnwWOzDo9LIfiq')
